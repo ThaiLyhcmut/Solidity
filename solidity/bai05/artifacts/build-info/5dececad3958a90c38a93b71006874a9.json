@@ -1,0 +1,72 @@
+{
+	"id": "5dececad3958a90c38a93b71006874a9",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.26",
+	"solcLongVersion": "0.8.26+commit.8a97fa7a",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"Crowdfunding.sol": {
+				"content": "// // SPDX-License-Identifier: MIT\n// pragma solidity >0.7.0 <0.9.0;\n\n// import {PriceConverter} from \"./PriceConverter.sol\";\n\n// contract Crowdfunding {\n//     using PriceConverter for uint256;\n    \n//     error NoAvailableAmount(); // Fix typo trong tên lỗi\n    \n//     struct Person {\n//         bool isFunders;\n//         uint256 value;\n//     }\n\n//     address public immutable i_owner;\n//     mapping(address => Person) public isFunders;\n//     address[] public funders;\n\n//     uint256 public constant MINIMUM_USD = 5 * 1e18; // 5 USD tính theo WEI\n\n//     // Constructor để gán owner\n//     constructor() {\n//         i_owner = msg.sender;\n//     }\n\n//     // Modifier để kiểm tra quyền Owner\n//     modifier onlyOwner() {\n//         if (msg.sender != i_owner) {\n//             revert NoAvailableAmount();\n//         }\n//         _;\n//     }\n\n//     // Nhận ETH và tự động gọi fund()\n//     receive() external payable {\n//         fund();\n//     }\n\n//     fallback() external payable {\n//         fund();\n//     }\n\n//     uint256 public check1;\n//     uint256 public check2;\n//     uint256 public check3;\n\n//     function fund() public payable {\n//         check1 = msg.value;\n//         check2 = msg.value.getConversionRate();\n//         check3 = MINIMUM_USD;\n\n//         require(check2 >= MINIMUM_USD, \"HCMUT No Money\"); // Đảm bảo ETH tương đương tối thiểu 5 USD\n\n//         // Nếu chưa từng fund trước đó, thêm vào danh sách funders\n//         if (!isFunders[msg.sender].isFunders) {\n//             funders.push(msg.sender);\n//             isFunders[msg.sender].isFunders = true;\n//         }\n//         isFunders[msg.sender].value += msg.value;\n//     }\n\n//     function withdraw() public onlyOwner {\n//         (bool sent, ) = payable(i_owner).call{value: address(this).balance}(\"\");\n//         require(sent, \"Failed to send Ether\");\n//     }\n\n//     function getBalance() public view returns (uint256) {\n//         return address(this).balance;\n//     }\n\n//     function getThisContract() public view returns (address) {\n//         return address(this);\n//     }\n// }\n"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		}
+	},
+	"output": {
+		"errors": [
+			{
+				"component": "general",
+				"errorCode": "3420",
+				"formattedMessage": "Warning: Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.26;\"\n--> Crowdfunding.sol\n\n",
+				"message": "Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.26;\"",
+				"severity": "warning",
+				"sourceLocation": {
+					"end": -1,
+					"file": "Crowdfunding.sol",
+					"start": -1
+				},
+				"type": "Warning"
+			}
+		],
+		"sources": {
+			"Crowdfunding.sol": {
+				"ast": {
+					"absolutePath": "Crowdfunding.sol",
+					"exportedSymbols": {},
+					"id": 1,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [],
+					"src": "2135:0:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}
