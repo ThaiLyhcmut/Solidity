@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >0.7.0 <0.9.0;
 
-import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
+import {PriceConverter} from "./PriceConverter.sol";
 
 contract Crowdfunding {
+    using PriceConverter for uint256;
     error NoAvailabelAmount();
     uint256 private constant WeiMinimum = uint256(5 * 1e18); // 5eth
     address public immutable i_owner = 0x1ddfE2c36478E61cE3acBE4B96e57143E1964FFd;
-    AggregatorV3Interface internal dataFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
 
     receive() external payable { 
         fund();
@@ -29,8 +29,7 @@ contract Crowdfunding {
     }
 
     function fund() public payable  {
-        uint256 ethPriceUsd = uint256(getETHData());
-        uint256 valueInUsd = msg.value * ethPriceUsd / 1e18;
+        uint256 valueInUsd = msg.value.getConversionRate();
         require(valueInUsd >= WeiMinimum, "no availabel amount");
     }
     function withdraw() public onlyOwner {
@@ -42,10 +41,5 @@ contract Crowdfunding {
     function getBalance() public view returns (uint256) {
         return address(this).balance;
     }
-
-    function getETHData() public view returns (int) {
-        (,int answer,,,) = dataFeed.latestRoundData();
-        return answer*1e10;
-    }   
     
 }

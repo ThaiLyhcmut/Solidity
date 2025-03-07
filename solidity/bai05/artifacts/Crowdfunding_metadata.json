@@ -41,19 +41,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "getETHData",
-				"outputs": [
-					{
-						"internalType": "int256",
-						"name": "",
-						"type": "int256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "i_owner",
 				"outputs": [
 					{
@@ -113,11 +100,19 @@
 			]
 		},
 		"solidity/bai05/Crowdfunding.sol": {
-			"keccak256": "0x52cde3af38390d14ce931d2a3ec13449a41d63bef2f6f29a11dccfbf01e529d0",
+			"keccak256": "0xa6cc86d589d47d9f2b09b0add51f7a4fccc745eb3297b4d129b51daee66715ee",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d296beaa01db44c71cb08e8dc12ac26d21cc4c2e90bed17e20ffe2bf08bdb987",
-				"dweb:/ipfs/QmPUCERomNGKPrjaX3Vd7iXrg6p2NYByZzVFhQ1uGfGQso"
+				"bzz-raw://df272eb5a877ef84f00617561f528e6be698fafb95436941bca950820fd77810",
+				"dweb:/ipfs/QmWHiZ6RXgCYdQoWuCmVK9NULX2t2NthXjHUyPMTuqDBef"
+			]
+		},
+		"solidity/bai05/PriceConverter.sol": {
+			"keccak256": "0x2642eebb1e8231c980aace5b0631f002e0cdbb522bb6af5144397677b22e482a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a7842b6fa8d2753a33b28949d864c8cdfbace535c069beae76702c28357f6f64",
+				"dweb:/ipfs/QmcpRhKmoZNLbP6huFKm9sNwN6kTPhujcLNYBdW9wr13zU"
 			]
 		}
 	},
